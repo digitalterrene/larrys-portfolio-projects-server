@@ -13,7 +13,7 @@ const router = express.Router();
 
 //Main Routes
 router.post("/signup", signupUser);
-router.get("/signin", signinUser);
+router.post("/signin", signinUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
