@@ -4,13 +4,9 @@ require("dotenv").config();
 
 //create task
 const createTask = async (req, res) => {
-  const { company_id, text, user_id } = req.body;
+  const {  text, user_id } = req.body;
   //checking if email and password is supplied
-  if (!company_id) {
-    res
-      .status(400)
-      .json({ error: "Please provide the company this task belongs to" });
-  } else if (!user_id) {
+  if (!user_id) {
     res
       .status(400)
       .json({ error: "Please provide the user this task belongs to" });
