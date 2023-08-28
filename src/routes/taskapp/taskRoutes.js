@@ -16,7 +16,7 @@ const router = express.Router();
 //Main Routes
 router.post("/create-task", createTask);
 router.get("/:id", getTask);
-router.get("/search-tasks/:object_key", getTasks);
+router.post("/search-tasks/:object_key", getTasks);
 router.put("/:id", updateTask);
 router.delete("/:id", deleteTask);
 
