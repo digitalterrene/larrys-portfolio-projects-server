@@ -42,10 +42,26 @@ const getTask = async (req, res) => {
 const getTasks = async (req, res) => {
   const { object_key } = req.params;
   const { skip, key_value, limit } = req.body;
-  if (!key_value) {
-    res.status(400).json({
-      error: `No Search parameter provided for the ${object_key} object key`,
-    });
+  if (!key_value ) {
+try{
+    const tasks = await taskModel.find({})
+      .sort({ createdAt: 1 })
+      .skip(skip)
+      .limit(limit)
+      .exec();
+    if(tasks){
+    res.status(200).json(tasks);
+    }else{
+              //requested task not found
+        res
+          .status(404)
+          .json({ error: `No tasks belonging to the provided${object_key}` });
+      }
+} catch (error) {
+    //server crashed || something went wrong with the server
+    res.status(500).json({ error: error.message });
+}
+    }
   } else {
     try {
       const tasks = await taskModel
