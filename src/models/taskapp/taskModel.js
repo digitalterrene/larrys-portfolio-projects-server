@@ -9,6 +9,7 @@ const taskSchema = new Schema(
     text: { type: String, required: true },
     user_id: { type: String, required: true },
     image: String,
+    month:String
   },
   { timestamps: true }
 );
