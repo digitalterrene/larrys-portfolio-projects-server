@@ -20,7 +20,7 @@ const signupUser = async (req, res) => {
   }
 };
 //get users
-const fatechUsers = async (req, res) => {
+const fetchUsers = async (req, res) => {
   try {
     const users = await userModel.find({});
     if (users) {
@@ -90,6 +90,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   signupUser,
   signinUser,
+  fetchUsers,
   updateUser,
   deleteUser,
 };
