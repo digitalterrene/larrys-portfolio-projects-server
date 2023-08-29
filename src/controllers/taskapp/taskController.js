@@ -61,7 +61,7 @@ try{
     //server crashed || something went wrong with the server
     res.status(500).json({ error: error.message });
 }
-    }
+    
   } else {
     try {
       const tasks = await taskModel
